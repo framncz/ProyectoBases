@@ -1,7 +1,7 @@
 /* ========================= PRUEBAS ========================= */
 USE PROYECTO_FINAL
 
-/* ========================= TABLAS ========================= */
+/* ========================= CONSULTA TABLAS ========================= */
 SELECT * FROM Ruta
 SELECT * FROM Conductor
 SELECT * FROM Camion
