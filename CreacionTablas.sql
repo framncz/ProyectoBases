@@ -60,6 +60,7 @@ CREATE TABLE Paquete(
     CONSTRAINT CK_Tipo CHECK(Tipo IN ('N','I'))
 );
 GO
+
 CREATE TABLE P_Nacional(
     Codigo			numeric(5),
     Ciudad_d		varchar(25),
@@ -70,8 +71,21 @@ CREATE TABLE P_Nacional(
     REFERENCES Ruta_Conductor_Camion (id_RCC),
     CONSTRAINT FK_NAC_PAQ FOREIGN KEY (Codigo)
     REFERENCES Paquete(Codigo)
+
 );
 GO
+
+CREATE TABLE Registros(
+	Registro_ID 	numeric(5),
+	Destino 		varchar(40),
+
+	CONSTRAINT PK_Registros PRIMARY KEY (Registro_ID),
+	CONSTRAINT FK_REG_NAC FOREIGN KEY (Registro_ID)
+    REFERENCES P_Nacional(Codigo)
+
+);
+GO
+
 CREATE TABLE P_Internacional(
     Codigo			  numeric(5),
     LineaAerea		varchar(25),
@@ -84,6 +98,5 @@ CREATE TABLE P_Internacional(
     CONSTRAINT FK_INT_PAQ FOREIGN KEY (Codigo)
     REFERENCES Paquete(Codigo)
 );
-
 --USE master
 --DROP DATABASE PROYECTO_FINAL;
